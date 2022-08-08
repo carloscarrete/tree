@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;700&family=Roboto:wght@100;700&display=swap');
 
+:root {
+  --backgroud-login: rgb(2, 0, 36);
+  --background-gradient: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(64, 64, 64, 1) 100%, rgba(0, 212, 255, 1) 100%);
+}
+
 * {
   padding: 0;
   margin: 0;
