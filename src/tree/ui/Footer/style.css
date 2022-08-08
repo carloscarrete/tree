@@ -1,0 +1,67 @@
+/* Footer */
+.container {
+    flex: 1;
+  }
+  
+  .ft-social {
+    /* padding: 0 1.875rem 1.25rem; */
+    /* Meeh */
+    padding: 0 0 0 0;
+  }
+  
+  .ft-social-list {
+    display: flex;
+    justify-content: center;
+    border-top: 1px #777 solid;
+    padding-top: 0;   /* Antes 1.25rem */
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(64, 64, 64, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  }
+  
+  .ft-social-list li {
+    margin: 0.5rem;
+    font-size: 1.25rem;
+    list-style: none;
+    padding-left: 0;;
+  }
+  
+  .ft-social-list li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .ft-social-list li i {
+    font-size: 1.50rem;
+  }
+  
+  
+  
+  /* .ft-social-list li a:hover {
+    color: #129B12;
+  } */
+  
+  .ft-legal {
+    padding: 0 1.875rem;
+    background-color: #000;
+  }
+  .ft-legal-list {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .ft-legal-list li {
+    margin: 0.125rem 0.625rem;
+    white-space: nowrap;
+    list-style: none;
+    color: white;
+    font-size: 10px;
+  }
+  .ft-legal-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+  }
+  /* one before the last child */
+  .ft-legal-list li:nth-last-child(2) {
+    flex: 1;       /* same as flex-grow: 1; */
+  }  
