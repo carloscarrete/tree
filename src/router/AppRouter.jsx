@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import AuthRoutes from '../auth/routes/AuthRoutes'
-import { TreeApp } from '../TreeApp'
+import { TreeRoutes } from '../tree/routes/TreeRoutes'
 
 export const AppRouter = () => {
   return (
    <Routes>
         <Route path='/auth/*' element={<AuthRoutes/>} />
-        <Route path='/*' element={<TreeApp/>} />
+        <Route path='/*' element={<TreeRoutes/>} />
     </Routes>
   )
 }
