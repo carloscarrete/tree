@@ -7,12 +7,10 @@ import { Navbar } from '../ui/Navbar/Navbar'
 export const TreeRoutes = () => {
     return (
         <>
-            <Navbar />
             <Routes>
                 <Route path='/' element={<TreePage />} />
                 <Route path='/*' element={<Navigate to='/' />} />
             </Routes>
-            <Footer />
         </>
     )
 }

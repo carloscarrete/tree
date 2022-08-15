@@ -1,0 +1,54 @@
+.main-page{
+    height: 100vh;
+    width: 100%;
+}
+
+.main-content{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.main-content .image img{
+    height: 400px;
+}
+
+.main-info{
+    color: white;
+}
+
+.title-main h1{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.main-description{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.main-description button{
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .main-content{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    .main-content .image img{
+        height: 200px;
+    }
+}
+    
