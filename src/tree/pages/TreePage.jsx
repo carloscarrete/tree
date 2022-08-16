@@ -1,3 +1,5 @@
+
+import { Link } from 'react-router-dom';
 import './styles/style.css';
 
 export const TreePage = () => {
@@ -18,8 +20,8 @@ export const TreePage = () => {
             <br />
             Con nuestro servicio podrás mostrar a tus seguidores tus redes sociales.
             <br />
-          <button className="btn">Iniciar sesión</button>
-          <button className="btn">Registrarse</button>
+            <button className='btn'><Link className='link' to='/auth/login'>Iniciar sesión</Link></button>
+            <button className='btn'><Link className='link' to='/auth/register'>Registrarse</Link></button>
           </div>
         </div>
       </div>
