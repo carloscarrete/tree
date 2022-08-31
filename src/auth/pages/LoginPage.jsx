@@ -1,21 +1,20 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../hooks';
-import { checkingAuth } from '../../store/auth/thunks';
+import { startLogin } from '../../store/auth/thunks';
 import './styles/styles.css';
 
 export const LoginPage = () => {
 
   const dispatch = useDispatch();
 
-  const { handleInputChange, reset, values, email, password } = useForm({
-    email: 'carloscarrete.sc@gmail.com',
-    password: '123456Mexico'
+  const { handleInputChange, values, username, password } = useForm({
+    username: 'carloscarrete',
+    password: 'carrete123'
   });
 
   const onHandleLogn = (e) => {
     e.preventDefault();
-    console.log(values);
-    dispatch(checkingAuth());
+    dispatch(startLogin(username, password));
   }
 
 
@@ -28,8 +27,8 @@ export const LoginPage = () => {
         <section>
           <form className="login-form" onSubmit={onHandleLogn}>
             <div className="input-group">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" placeholder='Por favor, introduzca su email' autoComplete='off' value={email} onChange={handleInputChange} name="email"/>
+              <label htmlFor="username">Nombre de usuario</label>
+              <input type="text" id="username" placeholder='Por favor, introduzca su nombre de usuario' autoComplete='off' value={username} onChange={handleInputChange} name="username"/>
             </div>
             <div className="input-group">
               <label htmlFor="password">Password</label>
