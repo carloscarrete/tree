@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './style.css';
 
 export const Navbar = () => {
+
+    const {displayName} = useSelector(state =>state.auth);
+
     return (
         <header className='header'>
             <div className="logo">
@@ -17,8 +21,8 @@ export const Navbar = () => {
                 </ul>
             </div>
             <div className="sign">
-                <button className='btn'><Link className='link' to='/auth/login'>Iniciar sesión</Link></button>
-                <button className='btn'><Link className='link' to='/auth/register'>Registrarse</Link></button>
+                {displayName ? <div className='userName'>{displayName}</div> :<button className='btn'><Link className='link' to='/auth/login'>Iniciar sesión</Link></button>}
+                {!displayName &&  <button className='btn'><Link className='link' to='/auth/register'>Registrarse</Link></button>}
             </div>
         </header>
     )
