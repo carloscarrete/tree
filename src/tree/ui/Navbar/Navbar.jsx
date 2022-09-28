@@ -1,11 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { startLogout } from '../../../store/auth/thunks';
 import './style.css';
 
 export const Navbar = () => {
 
     const {displayName} = useSelector(state =>state.auth);
+    const dispatch = useDispatch();
+
+    const logout = ()=>{
+        dispatch(startLogout());
+    }
 
     return (
         <header className='header'>
@@ -23,6 +29,10 @@ export const Navbar = () => {
             <div className="sign">
                 {displayName ? <div className='userName'>{displayName}</div> :<button className='btn'><Link className='link' to='/auth/login'>Iniciar sesión</Link></button>}
                 {!displayName &&  <button className='btn'><Link className='link' to='/auth/register'>Registrarse</Link></button>}
+                
+{/*                 {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
+ */}                
+                {displayName &&  <button className='btn-logout' onClick={logout}><Link className='link' to='/auth/login'>Cerrar sesión</Link></button>}
             </div>
         </header>
     )

@@ -1,5 +1,23 @@
+import { useDispatch } from "react-redux";
+import { useForm } from "../../hooks"
+import { startRegister } from "../../store/auth/thunks";
 
 export const RegisterPage = () => {
+
+  const dispatch = useDispatch();
+
+  const { handleInputChange, reset, values, username, email, password, confirmPassword } = useForm({
+      username: 'carloskrt',
+      email: 'carloskrt@gmail.com',
+      password: '123456789',
+      confirmPassword: '123456789'
+  });
+
+  const onHandleRegister = (e) => {
+    e.preventDefault();
+    dispatch(startRegister(values));
+  }
+
   return (
     <section className='wrapper'>
         <div className="content">
@@ -7,22 +25,22 @@ export const RegisterPage = () => {
             <h1>Registarse</h1>
           </header>
           <section>
-            <form className="login-form">
+            <form className="login-form" onSubmit={onHandleRegister}>
               <div className="input-group">
                 <label htmlFor="username">Nombre de usuario</label>
-                <input type="text" id="username" placeholder='Introduzca un nombre de usuario' autoComplete='off'/>
+                <input onChange={handleInputChange} value={username} name="username" type="text" id="username" placeholder='Introduzca un nombre de usuario' autoComplete='off'/>
               </div>
               <div className="input-group">
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder='Introduzca su correo electrónico' autoComplete='off'/>
+                <input onChange={handleInputChange} value={email} name="email" type="email" id="email" placeholder='Introduzca su correo electrónico' autoComplete='off'/>
               </div>
               <div className="input-group">
                 <label htmlFor="password">Contraseña</label>
-                <input type="password" id="password" placeholder='Introduzca su contraseña' autoComplete='off'/>
+                <input onChange={handleInputChange} value={password} name="password" type="password" id="password" placeholder='Introduzca su contraseña' autoComplete='off'/>
               </div>
               <div className="input-group">
                 <label htmlFor="password2">Contraseña</label>
-                <input type="password" id="password2" placeholder='Confirme su contraseña' autoComplete='off'/>
+                <input onChange={handleInputChange} value={confirmPassword} name="confirmPassword" type="password" id="password2" placeholder='Confirme su contraseña' autoComplete='off'/>
               </div>
               <div className="input-group">
                 <button type="submit" className="button">Registrarse</button>

@@ -1,4 +1,4 @@
-import { checkAuth, login } from "./authSlice"
+import { checkAuth, login, logout } from "./authSlice"
 import Swal from 'sweetalert2'
 import {fetchWithToken, fetchWithoutToken} from '../../helpers/fetch'
 
@@ -31,5 +31,26 @@ export const checkingAuth = () => {
         }else{
             dispatch(checkAuth());
         }
+    }
+}
+
+export const startRegister = (registerData) =>{
+    return async (dispatch) => {
+        const res = await fetchWithToken('api/v1/auth/register', registerData, 'POST' );
+        const data = await res.json();
+        if(!data.ok){
+            Swal.fire({
+                title: 'Error',
+                text: data.message,
+                icon: 'error',
+            })
+        }
+    }
+}
+
+export const startLogout = () =>{
+    return async (dispatch)=>{
+        localStorage.clear();
+        dispatch(logout());
     }
 }
