@@ -21,9 +21,12 @@ export const Navbar = () => {
             </div>
             <div className="nav">
                 <ul className="nav-items">
-                    <li className="nav-item"><Link className='link' to='/'>Inicio</Link></li>
-                    <li className="nav-item"><a href="about.html">About</a></li>
-                    <li className="nav-item"><a href="contact.html">Contact</a></li>
+                    {!displayName && <li className="nav-item"><Link className='link' to='/'>Inicio</Link></li>}
+                    {!displayName &&  <li className="nav-item"><a href="about.html">About</a></li>}
+                    {!displayName &&  <li className="nav-item"><a href="contact.html">Contact</a></li>}
+                   
+                    {displayName && <li className="nav-item"><a href="contact.html">Mis redes</a></li>}
+                    {displayName && <li className="nav-item"><Link to='/usuario/carretetitobebecisto'> Mi perfil</Link></li>}
                 </ul>
             </div>
             <div className="sign">
