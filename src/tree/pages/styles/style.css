@@ -51,4 +51,13 @@
         height: 200px;
     }
 }
-    
+
+select {
+    font-family: 'FontAwesome', 'Second Font name'
+  }
+
+  .select-social{
+    margin-top: 10px;
+  }
+
+  

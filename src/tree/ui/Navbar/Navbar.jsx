@@ -25,7 +25,7 @@ export const Navbar = () => {
                     {!displayName &&  <li className="nav-item"><a href="about.html">About</a></li>}
                     {!displayName &&  <li className="nav-item"><a href="contact.html">Contact</a></li>}
                    
-                    {displayName && <li className="nav-item"><a href="contact.html">Mis redes</a></li>}
+                    {displayName && <li className="nav-item"><Link to='/redes'> Mis redes</Link></li>}
                     {displayName && <li className="nav-item"><Link to='/usuario/carretetitobebecisto'> Mi perfil</Link></li>}
                 </ul>
             </div>
