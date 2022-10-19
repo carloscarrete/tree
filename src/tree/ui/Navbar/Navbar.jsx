@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startLogout } from '../../../store/auth/thunks';
@@ -6,13 +5,12 @@ import './style.css';
 
 export const Navbar = () => {
 
-    const {displayName} = useSelector(state =>state.auth);
+    const {displayName, uid} = useSelector(state =>state.auth);
     const dispatch = useDispatch();
 
     const logout = ()=>{
         dispatch(startLogout());
     }
-
     return (
         <header className='header'>
             <div className="logo">
@@ -26,7 +24,7 @@ export const Navbar = () => {
                     {!displayName &&  <li className="nav-item"><a href="contact.html">Contact</a></li>}
                    
                     {displayName && <li className="nav-item"><Link to='/redes'> Mis redes</Link></li>}
-                    {displayName && <li className="nav-item"><Link to='/usuario/carretetitobebecisto'> Mi perfil</Link></li>}
+                    {displayName && <li className="nav-item"><Link to={`/usuario/${displayName}`}> Mi perfil</Link></li>}
                 </ul>
             </div>
             <div className="sign">

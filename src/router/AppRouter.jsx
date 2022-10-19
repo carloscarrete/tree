@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
@@ -12,13 +13,15 @@ import { PublicRoute } from './PublicRoute'
 
 export const AppRouter = () => {
 
-  const {uid} = useSelector(selector => selector.auth);
+  const {uid, displayName: username} = useSelector(selector => selector.auth);
+  
   const dispatch = useDispatch();
-
-   useEffect(() => {
-    dispatch(checkingAuth())
+  
+  useEffect(() => {
+    dispatch(checkingAuth());
   }, [dispatch])
-   
+
+  if(!uid) return null;
 
   return (
     <>
