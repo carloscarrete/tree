@@ -19,9 +19,9 @@ export const AppRouter = () => {
   
   useEffect(() => {
     dispatch(checkingAuth());
-  }, [dispatch])
+  }, [dispatch, uid])
 
-  if(!uid) return null;
+  //if(!uid) return;
 
   return (
     <>
