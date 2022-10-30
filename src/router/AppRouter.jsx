@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import AuthRoutes from '../auth/routes/AuthRoutes'
 import { checkingAuth } from '../store/auth/thunks'
+import { Profile } from '../tree/pages/Profile'
 import { TreeRoutes } from '../tree/routes/TreeRoutes'
 import { Footer } from '../tree/ui/Footer/Footer'
 import { Navbar } from '../tree/ui/Navbar/Navbar'
@@ -21,7 +22,7 @@ export const AppRouter = () => {
     dispatch(checkingAuth());
   }, [dispatch, uid])
 
-  //if(!uid) return;
+  console.log('sudo carretero ',uid);
 
   return (
     <>
@@ -32,6 +33,8 @@ export const AppRouter = () => {
             <AuthRoutes/>
           </PublicRoute>
         } />
+
+        <Route path="/usuario/:user" element={<Profile />} />
 
         <Route path="/*" element={
           <PrivateRoute uid={!!uid}>

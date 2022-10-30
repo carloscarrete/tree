@@ -9,9 +9,9 @@ export const TreeRoutes = () => {
         <>
             <Routes>
                 <Route path='/' element={<TreePage />} />
-                <Route path='/usuario/:user' element={<Profile />} />
-                <Route path='/redes' element={<SocialNetworks />} />
-                {/*                 <Route path='/*' element={<Navigate to='/' />} /> */}
+{/*                 <Route path='/usuario/:user' element={<Profile />} />
+ */}                <Route path='/redes' element={<SocialNetworks />} />
+                <Route path='/*' element={<Navigate to='/' />} />
             </Routes>
         </>
     )
