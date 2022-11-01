@@ -10,9 +10,12 @@ export const socialSlice = createSlice({
   reducers: {
     add: (state, action) => {
         state.networks = [...state.networks, action.payload]
+    },
+    load: (state, action) => {
+      state.networks = [...state.networks, action.payload]
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { add } = socialSlice .actions
+export const { add, load } = socialSlice .actions

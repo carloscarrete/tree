@@ -1,6 +1,6 @@
 import { fetchWithToken } from "../../helpers/fetch"
 import { loadNetworks } from "../../helpers/loadNetworks";
-import { add } from "./socialSlice";
+import { add, load } from "./socialSlice";
 
 export const addSocialNetwork = (infoValues) => {
     return async (dispatch) => {
@@ -16,7 +16,8 @@ export const addSocialNetwork = (infoValues) => {
 
 export const startLoadingNetworks = (user) => {
     return async (dispatch) => {
-        const networks = await loadNetworks(user);
-        dispatch(add({...networks}));
+        const {networks} = await loadNetworks(user);
+        dispatch(load({networks}));
     }
 }
+

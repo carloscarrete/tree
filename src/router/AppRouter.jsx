@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import AuthRoutes from '../auth/routes/AuthRoutes'
 import { checkingAuth } from '../store/auth/thunks'
+import { startLoadingNetworks } from '../store/social-networks/thunks'
 import { Profile } from '../tree/pages/Profile'
 import { TreeRoutes } from '../tree/routes/TreeRoutes'
 import { Footer } from '../tree/ui/Footer/Footer'
@@ -22,7 +23,12 @@ export const AppRouter = () => {
     dispatch(checkingAuth());
   }, [dispatch, uid])
 
-  console.log('sudo carretero ',uid);
+  useEffect(() => {
+    if(uid){
+      dispatch(startLoadingNetworks(username));
+    }
+  }, [dispatch, uid])
+  
 
   return (
     <>

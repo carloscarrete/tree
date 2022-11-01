@@ -7,7 +7,7 @@ import './styles/style.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { addSocialNetwork } from '../../store/social-networks/thunks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
 
 library.add(fab)
@@ -16,11 +16,15 @@ library.add(fab)
 export const SocialNetworks = () => {
 
     const dispatch = useDispatch();
+    const {networks} = useSelector(state=>state.networks);
+    console.log(networks);
     const [socialNetwork, setSocialNetwork] = useState();
 
     const {handleInputChange, reset, values, url} = useForm({
         url: ''
     });
+
+    
     
     const handleAddSocialNetwork = (e) => {
         e.preventDefault();
