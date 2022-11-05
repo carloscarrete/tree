@@ -6,6 +6,9 @@ const initialState = {
   email: null,
   displayName: null,
   errorMessage: null,
+  profilePicture: null,
+  profileBackgroundPicture: null,
+  biography: null,
 }
 
 export const authSlice = createSlice({
@@ -22,9 +25,14 @@ export const authSlice = createSlice({
     logout: () => initialState ,
     checkAuth: (state, action) => {
       state.status = 'checking...'
+    },
+    addInfo: (state, action) => {
+      state.biography = action.payload.biography;
+      state.profilePicture = action.payload.profilePicture;
+      state.profileBackgroundPicture = action.payload.profileBackgroundPicture
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { login, logout, checkAuth } = authSlice .actions
+export const { login, logout, checkAuth, addInfo } = authSlice .actions

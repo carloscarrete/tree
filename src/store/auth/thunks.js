@@ -1,4 +1,4 @@
-import { checkAuth, login, logout } from "./authSlice"
+import { addInfo, checkAuth, login, logout } from "./authSlice"
 import Swal from 'sweetalert2'
 import {fetchWithToken, fetchWithoutToken} from '../../helpers/fetch'
 import { uploadImage } from "../../helpers/uploadImage"
@@ -73,6 +73,12 @@ export const startUploadingFiles = (biography, fileBackgroud, fileProfile) => {
          }
          const res = await fetchWithToken('api/v1/auth/image/profile ', infoToUpload, 'PUT');
          const data = await res.json();
-         console.log(data);
+         const {profilePicture} = data;
+         console.log(profilePicture);
+         dispatch(addInfo({
+            profileBackgroundPicture : profilePicture.profileBackgroundPicture,
+            profilePicture: profilePicture.profilePicture,
+            biography: profilePicture.biography
+         }))
         }   
 }
