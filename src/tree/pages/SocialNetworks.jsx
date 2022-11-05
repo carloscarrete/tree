@@ -13,6 +13,7 @@ import { addSocialNetwork } from '../../store/social-networks/thunks';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { startUploadingFiles } from '../../store/auth/thunks';
 
 library.add(fab, fas)
 
@@ -22,15 +23,18 @@ export const SocialNetworks = () => {
     const dispatch = useDispatch();
     const { networks } = useSelector(state => state.networks);
     const {uid} = useSelector(state => state.auth);
-    
-    console.log(networks);
+
+    const [backgroundProfile, setBackgroundProfile] = useState();
+    const [profilePicture, setProfilePicture] = useState();
     
     
     const uploadRef = useRef();
+    const uploadRefBackground = useRef();
     const [socialNetwork, setSocialNetwork] = useState();
 
-    const { handleInputChange, reset, values, url } = useForm({
-        url: ''
+    const { handleInputChange, reset, values, url, biography } = useForm({
+        url: '',
+        biography: ''
     });
 
 
@@ -43,9 +47,21 @@ export const SocialNetworks = () => {
         }));
     }
 
-    const handleFileChange = ({ target }) => {
+    const handleSubmitInformation = (e) => {
+        e.preventDefault();
+        dispatch(startUploadingFiles(biography, backgroundProfile, profilePicture));
+    };
+
+    const handleFileChangeProfile = ({ target }) => {
         if (target.files === 0) return;
-        console.log(target.files);
+        setProfilePicture(target.files[0]);
+        //dispatch(startUploadingFiles(target.files[0]));
+    }
+
+    const handleFileChangeBackground = ({ target }) => {
+        if (target.files === 0) return;
+        setBackgroundProfile(target.files[0]);
+        //dispatch(startUploadingFiles(target.files[0]));
     }
 
     return (
@@ -67,9 +83,18 @@ export const SocialNetworks = () => {
                     </form>
                 </section>
 
+                <form className='login-form' onSubmit={handleSubmitInformation}>
+                        <div className="input-group">
+                            <label htmlFor="url">Biography:</label>
+                            <textarea rows={5} name="biography" onChange={handleInputChange} value={biography} id="biography" placeholder='El otro día...' autoComplete='off' />
+                        </div>
+                        <div className="input-group">
+                            <button type='submit' className='button'>Actualizar</button>
+                        </div>
+                    </form>
                 <section>
                     <input type="file"
-                        onChange={handleFileChange}
+                        onChange={handleFileChangeProfile}
                         ref={uploadRef}
                         style={{ display: 'none' }}
                     />
@@ -77,6 +102,17 @@ export const SocialNetworks = () => {
                     <div>
                         <span>Subir foto de perfil</span>
                         <FontAwesomeIcon className='upload-img-profile' icon="fa-solid fa-cloud-arrow-up" onClick={() => uploadRef.current.click()} />
+                    </div>
+
+                    <input type="file"
+                        onChange={handleFileChangeBackground}
+                        ref={uploadRefBackground}
+                        style={{ display: 'none' }}
+                    />
+
+                    <div>
+                        <span>Subir background</span>
+                        <FontAwesomeIcon className='upload-img-profile' icon="fa-solid fa-cloud-arrow-up" onClick={() => uploadRefBackground.current.click()} />
                     </div>
                     <table>
                         <thead>

@@ -1,6 +1,7 @@
 import { checkAuth, login, logout } from "./authSlice"
 import Swal from 'sweetalert2'
 import {fetchWithToken, fetchWithoutToken} from '../../helpers/fetch'
+import { uploadImage } from "../../helpers/uploadImage"
 
 
 export const startLogin = (username, password) => {
@@ -53,4 +54,25 @@ export const startLogout = () =>{
         localStorage.clear();
         dispatch(logout());
     }
+}
+
+
+export const startUploadingFiles = (biography, fileBackgroud, fileProfile) => {
+    return async (dispatch) => {
+        //biography && console.log(biography)
+        //fileBackgroud && console.log(fileBackgroud)
+        //fileProfile && console.log(fileProfile)
+         //const url = await uploadImage(fileBackgroud);
+         const imgProfile = fileProfile && await uploadImage(fileProfile, 'treeps');
+         const imgBackground = fileBackgroud&& await uploadImage(fileBackgroud, 'treebs');
+
+         const infoToUpload = {
+            ...(imgBackground) && {profileBackgroundPicture: imgBackground},
+            ...(imgProfile) && {profilePicture: imgProfile},
+            ...(biography) && {biography: biography},
+         }
+         const res = await fetchWithToken('api/v1/auth/image/profile ', infoToUpload, 'PUT');
+         const data = await res.json();
+         console.log(data);
+        }   
 }

@@ -22,7 +22,6 @@ export const fetchWithToken = (endpoint, data, method='GET') => {
     const url = `${base_url}/${endpoint}`
     //const token = localStorage.getItem('token') || '';
     const token = localStorage.getItem('token') || '';
-
     if(method==='GET'){
         return fetch(url,{
             headers: {
