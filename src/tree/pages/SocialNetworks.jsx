@@ -25,8 +25,8 @@ export const SocialNetworks = () => {
 
     const [backgroundProfile, setBackgroundProfile] = useState();
     const [profilePicture, setProfilePicture] = useState();
-    
-    
+
+
     const uploadRef = useRef();
     const uploadRefBackground = useRef();
     const [socialNetwork, setSocialNetwork] = useState();
@@ -36,7 +36,7 @@ export const SocialNetworks = () => {
         biography: ''
     });
 
-
+    const ntw = networks[0].networks;
 
     const handleAddSocialNetwork = (e) => {
         e.preventDefault();
@@ -83,14 +83,14 @@ export const SocialNetworks = () => {
                 </section>
 
                 <form className='login-form' onSubmit={handleSubmitInformation}>
-                        <div className="input-group">
-                            <label htmlFor="url">Biography:</label>
-                            <textarea rows={5} name="biography" onChange={handleInputChange} value={biography} id="biography" placeholder='El otro día...' autoComplete='off' />
-                        </div>
-                        <div className="input-group">
-                            <button type='submit' className='button'>Actualizar</button>
-                        </div>
-                    </form>
+                    <div className="input-group">
+                        <label htmlFor="url">Biography:</label>
+                        <textarea rows={5} name="biography" onChange={handleInputChange} value={biography} id="biography" placeholder='El otro día...' autoComplete='off' />
+                    </div>
+                    <div className="input-group">
+                        <button type='submit' className='button'>Actualizar</button>
+                    </div>
+                </form>
                 <section>
                     <input type="file"
                         onChange={handleFileChangeProfile}
@@ -116,27 +116,19 @@ export const SocialNetworks = () => {
                     <table>
                         <thead>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Points</th>
+                                <th>Red Socal</th>
+                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Jill</td>
-                                <td>Smith</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>Eve</td>
-                                <td>Jackson</td>
-                                <td>94</td>
-                            </tr>
-                            <tr>
-                                <td>Adam</td>
-                                <td>Johnson</td>
-                                <td>67</td>
-                            </tr>
+                            {
+                                ntw.map(net => (
+                                    <tr key={net._id}>
+                                        <td>{(net.name).toUpperCase()}</td>
+                                        <td><FontAwesomeIcon icon="fa-solid fa-trash" /></td>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </table>
                 </section>
