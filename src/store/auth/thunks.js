@@ -28,7 +28,10 @@ export const checkingAuth = () => {
             const id = data.uid;
             const email = data.email;
             const username = data.username;
-            dispatch(login({id, username, email}));
+            const biography = data.biography;
+            const profilePicture = data.profilePicture;
+            const profileBackgroundPicture = data.profileBackgroundPicture;
+            dispatch(login({id, username, email, biography, profilePicture, profileBackgroundPicture}));
         }else{
             dispatch(checkAuth());
         }
@@ -82,3 +85,11 @@ export const startUploadingFiles = (biography, fileBackgroud, fileProfile) => {
          }))
         }   
 }
+
+
+/* export const startGetUserInfo = (user) => {
+    return async (dispatch) => {
+        const res = await loadInfoUser(user);
+        console.log(res);
+    }
+} */

@@ -22,7 +22,6 @@ export const SocialNetworks = () => {
 
     const dispatch = useDispatch();
     const { networks } = useSelector(state => state.networks);
-    const {uid} = useSelector(state => state.auth);
 
     const [backgroundProfile, setBackgroundProfile] = useState();
     const [profilePicture, setProfilePicture] = useState();

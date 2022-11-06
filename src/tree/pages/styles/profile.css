@@ -9,7 +9,8 @@
 
 .my-info {
     height: 100vh;
-    background: url(https://wallpaperaccess.com/full/981849.png) no-repeat center;
+/*     background: url(https://wallpaperaccess.com/full/981849.png) no-repeat center;
+ */ 
     background-size: cover;
     display: flex;
     align-items: center;

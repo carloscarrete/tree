@@ -21,6 +21,9 @@ export const authSlice = createSlice({
       state.uid = payload.id;
       state.displayName = payload.username;
       state.email = payload.email;
+      state.biography = payload.biography;
+      state.profileBackgroundPicture = payload.profileBackgroundPicture;
+      state.profilePicture = payload.profilePicture;
     },
     logout: () => initialState ,
     checkAuth: (state, action) => {

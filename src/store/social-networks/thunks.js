@@ -20,3 +20,4 @@ export const startLoadingNetworks = (user) => {
         dispatch(load({networks}));
     }
 }
+
