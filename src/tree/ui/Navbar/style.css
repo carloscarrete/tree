@@ -129,7 +129,7 @@
   }
 
   @media screen and (max-width:800px){
-    .nav-items, .btn, .userName{
+    .nav-items, .btn, .userName, .header .btn{
         display: none;
     }
     .menu{

@@ -56,10 +56,14 @@ export const Navbar = () => {
                     {/* {!displayName && <li className="nav-item"><a href="about.html">About</a></li>}
                     {!displayName && <li className="nav-item"><a href="contact.html">Contact</a></li>} */}
 
-                    <Link to='/redes'> Mis redes</Link>
-                    <Link to={`/usuario/${displayName}`}> Mi perfil</Link>
-                  
+                    {/* Cuando haya un usuario con sesión iniciada */}
+                    {displayName && <Link to='/redes'> Mis redes</Link>}
+                    {displayName && <Link to={`/usuario/${displayName}`}> Mi perfil</Link>}
                     {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
+
+                    {/* Cuando no haya un usuario con sesión iniciada */}
+                    {!displayName && <Link className='link' to='/auth/login'>Iniciar sesión</Link>}
+                    {!displayName && <Link className='link' to='/auth/register'>Registrarse</Link>}
                 </div>
             </div>
         </header>
