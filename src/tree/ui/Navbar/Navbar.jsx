@@ -57,9 +57,9 @@ export const Navbar = () => {
                     {!displayName && <li className="nav-item"><a href="contact.html">Contact</a></li>} */}
 
                     {/* Cuando haya un usuario con sesión iniciada */}
-                    {displayName && <Link to='/redes'> Mis redes</Link>}
-                    {displayName && <Link to={`/usuario/${displayName}`}> Mi perfil</Link>}
-                    {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
+                    {displayName && <Link onClick={handleCloseNav} to='/redes'>Mis redes</Link>}
+                    {displayName && <Link onClick={handleCloseNav} to={`/usuario/${displayName}`}>Mi perfil</Link>}
+                    {displayName &&  <button onClick={handleCloseNav} className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
 
                     {/* Cuando no haya un usuario con sesión iniciada */}
                     {!displayName && <Link className='link' onClick={handleCloseNav} to='/auth/login'>Iniciar sesión</Link>}

@@ -65,3 +65,13 @@ select {
     font-size: 25px;
   }
   
+
+  .img-profile-user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+    border: 1px solid #000;
+    width: 100%;
+    max-width: 310px;
+  }

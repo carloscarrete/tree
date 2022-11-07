@@ -21,7 +21,7 @@ library.add(fab, fas)
 export const SocialNetworks = () => {
 
     const dispatch = useDispatch();
-    const { networks:ntw } = useSelector(state => state.networks);
+    const { networks: ntw } = useSelector(state => state.networks);
 
     const [backgroundProfile, setBackgroundProfile] = useState();
     const [profilePicture, setProfilePicture] = useState();
@@ -42,12 +42,12 @@ export const SocialNetworks = () => {
         const regularExpressionURL = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig
         const isUrlValid = regularExpressionURL.test(url);
 
-        if(isUrlValid){
+        if (isUrlValid) {
             dispatch(addSocialNetwork({
                 name: socialNetwork,
                 url
             }));
-        }else{
+        } else {
             alert('Ingrese una URL válida')
         }
     }
@@ -88,37 +88,40 @@ export const SocialNetworks = () => {
                     </form>
                 </section>
 
-                <form className='login-form' onSubmit={handleSubmitInformation}>
-                    <div className="input-group">
-                        <label htmlFor="url">Biografía:</label>
-                        <textarea rows={5} name="biography" onChange={handleInputChange} value={biography} id="biography" placeholder='El otro día...' autoComplete='off' />
-                    </div>
-                    <div className="input-group">
-                        <button type='submit' className='button'>Actualizar</button>
-                    </div>
-                </form>
                 <section>
-                    <input type="file"
-                        onChange={handleFileChangeProfile}
-                        ref={uploadRef}
-                        style={{ display: 'none' }}
-                    />
+                <header>
+                    <h1>Agregar información adicional</h1>
+                </header>
+                    <form className='login-form' onSubmit={handleSubmitInformation}>
+                        <input type="file"
+                            onChange={handleFileChangeProfile}
+                            ref={uploadRef}
+                            style={{ display: 'none' }}
+                        />
 
-                    <div>
-                        <span>Subir foto de perfil</span>
-                        <FontAwesomeIcon className='upload-img-profile' icon="fa-solid fa-cloud-arrow-up" onClick={() => uploadRef.current.click()} />
-                    </div>
+                        <div className='img-profile-user'>
+                            <span>Subir foto de perfil</span>
+                            <FontAwesomeIcon className='upload-img-profile' icon="fa-solid fa-cloud-arrow-up" onClick={() => uploadRef.current.click()} />
+                        </div>
 
-                    <input type="file"
-                        onChange={handleFileChangeBackground}
-                        ref={uploadRefBackground}
-                        style={{ display: 'none' }}
-                    />
+                        <input type="file"
+                            onChange={handleFileChangeBackground}
+                            ref={uploadRefBackground}
+                            style={{ display: 'none' }}
+                        />
 
-                    <div>
-                        <span>Subir background</span>
-                        <FontAwesomeIcon className='upload-img-profile' icon="fa-solid fa-cloud-arrow-up" onClick={() => uploadRefBackground.current.click()} />
-                    </div>
+                        <div className='img-profile-user'>
+                            <span>Subir background</span>
+                            <FontAwesomeIcon className='upload-img-profile' icon="fa-solid fa-cloud-arrow-up" onClick={() => uploadRefBackground.current.click()} />
+                        </div>
+                        <div className="input-group">
+                            <label htmlFor="url">Biografía:</label>
+                            <textarea rows={5} name="biography" onChange={handleInputChange} value={biography} id="biography" placeholder='Introduce tu biografía aquí...' autoComplete='off' />
+                        </div>
+                        <div className="input-group">
+                            <button type='submit' className='button'>Actualizar</button>
+                        </div>
+                    </form>
                     <table>
                         <thead>
                             <tr>
@@ -129,7 +132,7 @@ export const SocialNetworks = () => {
                         <tbody>
                             {
                                 ntw.map(net => (
-                                    <tr key={net._id}>
+                                    <tr key={net.name}>
                                         <td>{(net.name).toUpperCase()}</td>
                                         <td><FontAwesomeIcon icon="fa-solid fa-trash" /></td>
                                     </tr>

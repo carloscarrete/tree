@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useCallback } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
+import {  useParams } from "react-router-dom"
 import { loadInfoUser } from "../../helpers/loadInfoUser";
 import { startLoadingNetworks } from "../../store/social-networks/thunks";
 
@@ -44,8 +44,6 @@ export const Profile = () => {
 
   const tempIMG = 'https://pub-cd0a3c2522104dc8b025e2367ee067fe.r2.dev/outputs/b56b8e17-a311-41c4-8ce7-7e07efdbda2c.png';
 
-
-
   return (
     <div className="my-info" style={{background: `url(${profileUserInfo?.profileBackgroundPicture}) no-repeat center`}}>
       <div className="profile-card">
@@ -67,7 +65,7 @@ export const Profile = () => {
 
           {
             profileUserInfo?.networks.map(network => (
-              <FontAwesomeIcon key={network.name} className="my-icon" icon={`fa-brands fa-${network.name}`} />
+                <a key={network.name} href={network.url} rel="noopener" target="_blank"><FontAwesomeIcon className="my-icon" icon={`fa-brands fa-${network.name}`} /> </a>              
             ))
           }
 
