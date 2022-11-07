@@ -9,7 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
-import { addSocialNetwork } from '../../store/social-networks/thunks';
+import { addSocialNetwork, deleteSocialNetwork } from '../../store/social-networks/thunks';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -67,6 +67,10 @@ export const SocialNetworks = () => {
         if (target.files === 0) return;
         setBackgroundProfile(target.files[0]);
         //dispatch(startUploadingFiles(target.files[0]));
+    }
+
+    const handleDelete = (idSocialNetwork) => {
+        dispatch(deleteSocialNetwork(idSocialNetwork));
     }
 
     return (
@@ -134,7 +138,7 @@ export const SocialNetworks = () => {
                                 ntw.map(net => (
                                     <tr key={net.name}>
                                         <td>{(net.name).toUpperCase()}</td>
-                                        <td><FontAwesomeIcon icon="fa-solid fa-trash" /></td>
+                                        <td><FontAwesomeIcon onClick={()=>handleDelete(net._id)} icon="fa-solid fa-trash" /></td>
                                     </tr>
                                 ))
                             }

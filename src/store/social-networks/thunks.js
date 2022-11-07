@@ -1,6 +1,6 @@
 import { fetchWithToken } from "../../helpers/fetch"
 import { loadNetworks } from "../../helpers/loadNetworks";
-import { add, load } from "./socialSlice";
+import { add, deleteN, load } from "./socialSlice";
 
 export const addSocialNetwork = (infoValues) => {
     return async (dispatch) => {
@@ -20,3 +20,12 @@ export const startLoadingNetworks = (user) => {
     }
 }
 
+export const deleteSocialNetwork = ( id ) => {
+    return async (dispatch) => {
+        const res = await fetchWithToken(`api/v1/networks/${id}`,{}, 'DELETE');
+        const data = await res.json();
+        if(data.ok){
+            dispatch(deleteN(id));
+        }
+    }
+}

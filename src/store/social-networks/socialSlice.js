@@ -13,9 +13,12 @@ export const socialSlice = createSlice({
     },
     load: (state, action) => {
       state.networks = action.payload;
+    },
+    deleteN: (state, action) => {
+      state.networks = state.networks.filter(ntw => ntw._id !== action.payload);
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { add, load } = socialSlice .actions
+export const { add, load, deleteN } = socialSlice .actions
