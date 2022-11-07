@@ -62,8 +62,8 @@ export const Navbar = () => {
                     {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
 
                     {/* Cuando no haya un usuario con sesión iniciada */}
-                    {!displayName && <Link className='link' to='/auth/login'>Iniciar sesión</Link>}
-                    {!displayName && <Link className='link' to='/auth/register'>Registrarse</Link>}
+                    {!displayName && <Link className='link' onClick={handleCloseNav} to='/auth/login'>Iniciar sesión</Link>}
+                    {!displayName && <Link className='link' onClick={handleCloseNav} to='/auth/register'>Registrarse</Link>}
                 </div>
             </div>
         </header>
