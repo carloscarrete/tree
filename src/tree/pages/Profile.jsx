@@ -12,10 +12,10 @@ import './styles/profile.css'
 
 export const Profile = () => {
 
-  const { uid, profileBackgroundPicture, profilePicture, biography, displayName } = useSelector(state => state.auth);
+  const { uid } = useSelector(state => state.auth);
   const {networks} = useSelector(state => state.networks);
 
-  const profileNetworks = networks[0]?.networks;
+  const profileNetworks = networks;
   const [profileUserInfo, setProfielUserInfo] = useState();
 
   const { user } = useParams();
@@ -66,7 +66,7 @@ export const Profile = () => {
           <FontAwesomeIcon className="my-icon" icon="fa-brands fa-youtube" />  */}
 
           {
-            profileNetworks?.map(network => (
+            profileUserInfo?.networks.map(network => (
               <FontAwesomeIcon key={network.name} className="my-icon" icon={`fa-brands fa-${network.name}`} />
             ))
           }

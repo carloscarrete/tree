@@ -9,10 +9,10 @@ export const socialSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {
-        state.networks = [...state.networks, action.payload]
+        state.networks.push(action.payload);
     },
     load: (state, action) => {
-      state.networks = [...state.networks, action.payload]
+      state.networks = action.payload;
     }
   }
 })

@@ -17,7 +17,7 @@ export const addSocialNetwork = (infoValues) => {
 export const startLoadingNetworks = (user) => {
     return async (dispatch) => {
         const {networks} = await loadNetworks(user);
-        dispatch(load({networks}));
+        dispatch(load(networks));
     }
 }
 

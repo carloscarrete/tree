@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startLogout } from '../../../store/auth/thunks';
@@ -5,12 +6,23 @@ import './style.css';
 
 export const Navbar = () => {
 
-    const {displayName, uid} = useSelector(state =>state.auth);
+    const { displayName, uid } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    const logout = ()=>{
+    const tabNav = useRef();
+
+    const logout = () => {
         dispatch(startLogout());
     }
+
+    const handleOpenNav = () => {
+        tabNav.current.style.width = "100%"
+    }
+
+    const handleCloseNav = () => {
+        tabNav.current.style.width = "0%"
+    }
+
     return (
         <header className='header'>
             <div className="logo">
@@ -20,20 +32,35 @@ export const Navbar = () => {
             <div className="nav">
                 <ul className="nav-items">
                     {!displayName && <li className="nav-item"><Link className='link' to='/'>Inicio</Link></li>}
-                    {!displayName &&  <li className="nav-item"><a href="about.html">About</a></li>}
-                    {!displayName &&  <li className="nav-item"><a href="contact.html">Contact</a></li>}
-                   
+                    {!displayName && <li className="nav-item"><a href="about.html">About</a></li>}
+                    {!displayName && <li className="nav-item"><a href="contact.html">Contact</a></li>}
+
                     {displayName && <li className="nav-item"><Link to='/redes'> Mis redes</Link></li>}
                     {displayName && <li className="nav-item"><Link to={`/usuario/${displayName}`}> Mi perfil</Link></li>}
                 </ul>
             </div>
             <div className="sign">
-                {displayName ? <div className='userName'>{displayName}</div> :<button className='btn'><Link className='link' to='/auth/login'>Iniciar sesión</Link></button>}
-                {!displayName &&  <button className='btn'><Link className='link' to='/auth/register'>Registrarse</Link></button>}
-                
-{/*                 {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
- */}                
-                {displayName &&  <button className='btn-logout' onClick={logout}><Link className='link' to='/auth/login'>Cerrar sesión</Link></button>}
+                {displayName ? <div className='userName'>{displayName}</div> : <button className='btn'><Link className='link' to='/auth/login'>Iniciar sesión</Link></button>}
+                {!displayName && <button className='btn'><Link className='link' to='/auth/register'>Registrarse</Link></button>}
+
+                {/*                 {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
+ */}
+                {/*                 {displayName && <button className='btn-logout' onClick={logout}><Link className='link' to='/auth/login'>Cerrar sesión</Link></button>} */}
+            </div>
+
+            <button className='menu' onClick={handleOpenNav}>Menú</button>
+            <div className="overlay" id="mobile-menu" ref={tabNav}>
+                <button className='close' onClick={handleCloseNav}>&times;</button>
+                <div className="overlay-contetn">
+                    <Link  to='/'>Inicio</Link>
+                    {/* {!displayName && <li className="nav-item"><a href="about.html">About</a></li>}
+                    {!displayName && <li className="nav-item"><a href="contact.html">Contact</a></li>} */}
+
+                    <Link to='/redes'> Mis redes</Link>
+                    <Link to={`/usuario/${displayName}`}> Mi perfil</Link>
+                  
+                    {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
+                </div>
             </div>
         </header>
     )

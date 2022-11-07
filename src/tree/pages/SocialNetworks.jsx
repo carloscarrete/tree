@@ -21,7 +21,7 @@ library.add(fab, fas)
 export const SocialNetworks = () => {
 
     const dispatch = useDispatch();
-    const { networks } = useSelector(state => state.networks);
+    const { networks:ntw } = useSelector(state => state.networks);
 
     const [backgroundProfile, setBackgroundProfile] = useState();
     const [profilePicture, setProfilePicture] = useState();
@@ -36,14 +36,20 @@ export const SocialNetworks = () => {
         biography: ''
     });
 
-    const ntw = networks[0].networks;
-
     const handleAddSocialNetwork = (e) => {
         e.preventDefault();
-        dispatch(addSocialNetwork({
-            name: socialNetwork,
-            url
-        }));
+
+        const regularExpressionURL = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig
+        const isUrlValid = regularExpressionURL.test(url);
+
+        if(isUrlValid){
+            dispatch(addSocialNetwork({
+                name: socialNetwork,
+                url
+            }));
+        }else{
+            alert('Ingrese una URL válida')
+        }
     }
 
     const handleSubmitInformation = (e) => {
@@ -84,7 +90,7 @@ export const SocialNetworks = () => {
 
                 <form className='login-form' onSubmit={handleSubmitInformation}>
                     <div className="input-group">
-                        <label htmlFor="url">Biography:</label>
+                        <label htmlFor="url">Biografía:</label>
                         <textarea rows={5} name="biography" onChange={handleInputChange} value={biography} id="biography" placeholder='El otro día...' autoComplete='off' />
                     </div>
                     <div className="input-group">
