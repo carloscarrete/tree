@@ -22,7 +22,6 @@ export const Profile = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      console.log(uid)
       dispatch(startLoadingNetworks(user));
   }, [dispatch])
 

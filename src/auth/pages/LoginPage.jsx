@@ -8,8 +8,8 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
 
   const { handleInputChange, values, username, password } = useForm({
-    username: 'carloscarrete',
-    password: 'carrete123'
+    username: '',
+    password: ''
   });
 
   const onHandleLogn = (e) => {
@@ -28,11 +28,11 @@ export const LoginPage = () => {
           <form className="login-form" onSubmit={onHandleLogn}>
             <div className="input-group">
               <label htmlFor="username">Nombre de usuario</label>
-              <input type="text" id="username" placeholder='Por favor, introduzca su nombre de usuario' autoComplete='off' value={username} onChange={handleInputChange} name="username"/>
+              <input type="text" id="username" placeholder='Introduzca su nombre de usuario' autoComplete='off' value={username} onChange={handleInputChange} name="username"/>
             </div>
             <div className="input-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" id="password" placeholder='Por favor, introduzca su contraseña' value={password} onChange={handleInputChange} name="password" />
+              <label htmlFor="password">Contraseña</label>
+              <input type="password" id="password" placeholder='Introduzca su contraseña' value={password} onChange={handleInputChange} name="password" />
             </div>
             <div className="input-group">
               <button type="submit" className="button">Iniciar sesión</button>

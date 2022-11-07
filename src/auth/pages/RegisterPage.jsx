@@ -7,10 +7,10 @@ export const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const { handleInputChange, reset, values, username, email, password, confirmPassword } = useForm({
-      username: 'carloskrt',
-      email: 'carloskrt@gmail.com',
-      password: '123456789',
-      confirmPassword: '123456789'
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
   });
 
   const onHandleRegister = (e) => {

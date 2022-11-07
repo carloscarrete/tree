@@ -62,10 +62,6 @@ export const startLogout = () =>{
 
 export const startUploadingFiles = (biography, fileBackgroud, fileProfile) => {
     return async (dispatch) => {
-        //biography && console.log(biography)
-        //fileBackgroud && console.log(fileBackgroud)
-        //fileProfile && console.log(fileProfile)
-         //const url = await uploadImage(fileBackgroud);
          const imgProfile = fileProfile && await uploadImage(fileProfile, 'treeps');
          const imgBackground = fileBackgroud&& await uploadImage(fileBackgroud, 'treebs');
 
@@ -77,7 +73,6 @@ export const startUploadingFiles = (biography, fileBackgroud, fileProfile) => {
          const res = await fetchWithToken('api/v1/auth/image/profile ', infoToUpload, 'PUT');
          const data = await res.json();
          const {profilePicture} = data;
-         console.log(profilePicture);
          dispatch(addInfo({
             profileBackgroundPicture : profilePicture.profileBackgroundPicture,
             profilePicture: profilePicture.profilePicture,
@@ -86,10 +81,3 @@ export const startUploadingFiles = (biography, fileBackgroud, fileProfile) => {
         }   
 }
 
-
-/* export const startGetUserInfo = (user) => {
-    return async (dispatch) => {
-        const res = await loadInfoUser(user);
-        console.log(res);
-    }
-} */
