@@ -27,7 +27,7 @@ export const Navbar = () => {
         <header className='header'>
             <div className="logo">
                 <img src="https://cdn-icons-png.flaticon.com/512/490/490091.png" alt="Tree" />
-                <h2>{import.meta.env.VITE_FIRST_TITLE}<span>{import.meta.env.VITE_SECOND_TITLE}</span></h2>
+                <a href='/'><h2>{import.meta.env.VITE_FIRST_TITLE}<span>{import.meta.env.VITE_SECOND_TITLE}</span></h2></a>
             </div>
             <div className="nav">
                 <ul className="nav-items">
