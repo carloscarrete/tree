@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { startUploadingFiles } from '../../store/auth/thunks';
+import Swal from 'sweetalert2';
 
 library.add(fab, fas)
 
@@ -47,8 +48,14 @@ export const SocialNetworks = () => {
                 name: socialNetwork,
                 url
             }));
+            reset();
         } else {
-            alert('Ingrese una URL válida')
+            Swal.fire({
+                title: 'Error',
+                text: "Por favor, verifique que haya introducido un URL válido",
+                icon: 'error',
+                timer: 5000
+            })
         }
     }
 
@@ -83,7 +90,7 @@ export const SocialNetworks = () => {
                     <form className='login-form' onSubmit={handleAddSocialNetwork}>
                         <div className="input-group">
                             <label htmlFor="url">URL:</label>
-                            <input name="url" onChange={handleInputChange} value={url} type="text" id="url" placeholder='Url de la red social' autoComplete='off' />
+                            <input name="url" onChange={handleInputChange} value={url} type="text" id="url" placeholder='URL de la red social' autoComplete='off' />
                             <Select placeholder="Seleccione su red" className='select-social' options={socialNetworksOptions} onChange={(e) => setSocialNetwork(e.value)} />
                         </div>
                         <div className="input-group">
@@ -94,7 +101,7 @@ export const SocialNetworks = () => {
 
                 <section>
                 <header>
-                    <h1>Agregar información adicional</h1>
+                    <h1 className='info-ad'>Agregar información adicional</h1>
                 </header>
                     <form className='login-form' onSubmit={handleSubmitInformation}>
                         <input type="file"

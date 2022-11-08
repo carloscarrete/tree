@@ -75,3 +75,7 @@ select {
     width: 100%;
     max-width: 310px;
   }
+
+  .info-ad{
+    margin-top: 10px;
+  }

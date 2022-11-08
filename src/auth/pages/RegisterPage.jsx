@@ -16,6 +16,7 @@ export const RegisterPage = () => {
   const onHandleRegister = (e) => {
     e.preventDefault();
     dispatch(startRegister(values));
+    reset();
   }
 
   return (
