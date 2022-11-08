@@ -8,8 +8,8 @@ export const addSocialNetwork = (infoValues) => {
         const res = await fetchWithToken('api/v1/networks',infoValues, 'POST');
         const data = await res.json();
         if(data.ok){
-            const { name , url } = data;
-            dispatch(add({name, url}));
+            const { name , url, _id } = data;
+            dispatch(add({name, url, _id}));
             Swal.fire({
                 title: 'Red Social Agregada',
                 text: "La red social ha sido agregada con éxito",

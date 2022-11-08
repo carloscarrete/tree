@@ -10,7 +10,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { addSocialNetwork, deleteSocialNetwork } from '../../store/social-networks/thunks';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { startUploadingFiles } from '../../store/auth/thunks';
@@ -20,7 +20,6 @@ library.add(fab, fas)
 
 
 export const SocialNetworks = () => {
-
     const dispatch = useDispatch();
     const { networks: ntw } = useSelector(state => state.networks);
 
