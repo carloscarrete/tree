@@ -48,15 +48,14 @@ export const Profile = () => {
       <div className="profile-card">
         <div className="card-header">
           <div className="pic">
-            <img src={profileUserInfo?.profilePicture} alt="" />
+            <img src={profileUserInfo?.profilePicture} alt="profile-picture" />
           </div>
           {/* <div className="name">Carlos Carrete</div>
           <div className="desc">La producción de código abierto nos ha demostrado que el software de clase mundial, como Linux y Mozilla, no puede ser creado ni con la estructura burocrática de la empresa ni con los incentivos del mercado tal como los conocemos</div>
           <div className="sm"> */}
-          <div className="name">{profileUserInfo?.username}</div>
+          <div className="name">{profileUserInfo?.username} {profileUserInfo?.verified && <img src="../src/assets/verified.svg" alt="verified" height="20px" />}</div>
           <div className="desc">{profileUserInfo?.biography}</div>
           <div className="sm">
-            
          {/* <FontAwesomeIcon className="my-icon" icon="fa-brands fa-facebook" />
           <FontAwesomeIcon className="my-icon" icon="fa-brands fa-twitter" />
           <FontAwesomeIcon className="my-icon" icon="fa-brands fa-github" />

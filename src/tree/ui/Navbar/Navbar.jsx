@@ -43,8 +43,8 @@ export const Navbar = () => {
                 {displayName ? <div className='userName'>{displayName}</div> : <button className='btn'><Link className='link' to='/auth/login'>Iniciar sesión</Link></button>}
                 {!displayName && <button className='btn'><Link className='link' to='/auth/register'>Registrarse</Link></button>}
 
-                {/*                 {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
- */}
+                                 {displayName &&  <button className='btn-logout'><Link className='link' to='/auth/login' onClick={logout}>Cerrar sesión</Link></button>}
+
                 {/*                 {displayName && <button className='btn-logout' onClick={logout}><Link className='link' to='/auth/login'>Cerrar sesión</Link></button>} */}
             </div>
 
