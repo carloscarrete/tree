@@ -27,11 +27,11 @@ export const LoginPage = () => {
         <section>
           <form className="login-form" onSubmit={onHandleLogn}>
             <div className="input-group">
-              <label htmlFor="username">Nombre de usuario</label>
+              <label htmlFor="username" className='lbl-text'>Nombre de usuario</label>
               <input type="text" id="username" placeholder='Introduzca su nombre de usuario' autoComplete='off' value={username} onChange={handleInputChange} name="username"/>
             </div>
             <div className="input-group">
-              <label htmlFor="password">Contraseña</label>
+              <label htmlFor="password" className='lbl-text'>Contraseña</label>
               <input type="password" id="password" placeholder='Introduzca su contraseña' value={password} onChange={handleInputChange} name="password" />
             </div>
             <div className="input-group">

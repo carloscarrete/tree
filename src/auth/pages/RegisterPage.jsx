@@ -23,7 +23,7 @@ export const RegisterPage = () => {
     <section className='wrapper'>
         <div className="content">
           <header>
-            <h1>Registarse</h1>
+            <h1>Registrarse</h1>
           </header>
           <section>
             <form className="login-form" onSubmit={onHandleRegister}>

@@ -1,15 +1,26 @@
 table {
+    margin-top: 20px;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 2px solid rgba(255,255,255,0.35);
   }
   
   th, td {
     text-align: left;
     padding: 10px;
+    color: white;
+    font-weight: 700;
   }
   
+td:last-child{
+  text-align: center;
+}
+
+th:last-child{
+  text-align: center;
+}
+
   tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: rgba(255,255,255,0.20);
   }

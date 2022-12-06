@@ -10,7 +10,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { addSocialNetwork, deleteSocialNetwork } from '../../store/social-networks/thunks';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { startUploadingFiles } from '../../store/auth/thunks';
@@ -80,7 +80,7 @@ export const SocialNetworks = () => {
     }
 
     return (
-        <section className='wrapper'>
+        <section className='wrapper-n'>
             <div className="content">
                 <header>
                     <h1>Agregar nueva red social</h1>
@@ -90,7 +90,29 @@ export const SocialNetworks = () => {
                         <div className="input-group">
                             <label htmlFor="url">URL:</label>
                             <input name="url" onChange={handleInputChange} value={url} type="text" id="url" placeholder='URL de la red social' autoComplete='off' />
-                            <Select placeholder="Seleccione su red" className='select-social' options={socialNetworksOptions} onChange={(e) => setSocialNetwork(e.value)} />
+                            <Select
+                                placeholder="Seleccione su red"
+                                className='select-social'
+                                options={socialNetworksOptions}
+                                onChange={(e) => setSocialNetwork(e.value)}
+                                styles={{
+                                    control: (baseStyles, state) => ({
+                                        ...baseStyles,
+                                        backgroundColor: 'rgba(255, 255, 255, 0.10);',
+                                        color: 'rgba(0, 0, 0, 1.0);'
+                                    }),
+                                }}
+                                theme={(theme) => ({
+                                    ...theme,
+                                    borderRadius: 0,
+                                    colors: {
+                                        ...theme.colors,
+                                        text: 'orangered',
+                                        primary25: 'rgba(0, 151, 45, 0.50);',
+                                        primary: 'rgb(0, 151, 45);',
+                                    },
+                                })}
+                            />
                         </div>
                         <div className="input-group">
                             <button type='submit' className='button'>Agregar</button>
@@ -99,10 +121,10 @@ export const SocialNetworks = () => {
                 </section>
 
                 <section>
-                <header>
-                    <h1 className='info-ad'>Agregar información adicional</h1>
-                </header>
-                    <form className='login-form' onSubmit={handleSubmitInformation}>
+                    <header>
+                        <h1 className='info-ad'>Agregar información adicional</h1>
+                    </header>
+                    <form className='login-form login-form--user' onSubmit={handleSubmitInformation}>
                         <input type="file"
                             onChange={handleFileChangeProfile}
                             ref={uploadRef}
@@ -144,7 +166,7 @@ export const SocialNetworks = () => {
                                 ntw.map(net => (
                                     <tr key={net.name}>
                                         <td>{(net.name).toUpperCase()}</td>
-                                        <td><FontAwesomeIcon onClick={()=>handleDelete(net._id)} icon="fa-solid fa-trash" /></td>
+                                        <td><FontAwesomeIcon onClick={() => handleDelete(net._id)} icon="fa-solid fa-trash" /></td>
                                     </tr>
                                 ))
                             }

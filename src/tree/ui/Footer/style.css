@@ -9,30 +9,30 @@
     padding: 0 0 0 0;
   }
   
-  .ft-social-list {
+ /*  .ft-social-list {
     display: flex;
     justify-content: center;
     border-top: 1px #777 solid;
-    padding-top: 0;   /* Antes 1.25rem */
+    padding-top: 0;   
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(64, 64, 64, 1) 100%, rgba(0, 212, 255, 1) 100%);
-  }
+  } */
   
-  .ft-social-list li {
+/*   .ft-social-list li {
     margin: 0.5rem;
     font-size: 1.25rem;
     list-style: none;
     padding-left: 0;;
-  }
+  } */
   
-  .ft-social-list li a {
+/*   .ft-social-list li a {
     color: #fff;
     text-decoration: none;
   }
   
   .ft-social-list li i {
     font-size: 1.50rem;
-  }
+  } */
   
   
   
@@ -44,6 +44,7 @@
     padding: 0 1.875rem;
     background-color: #000;
   }
+
   .ft-legal-list {
     display: flex;
     width: 100%;

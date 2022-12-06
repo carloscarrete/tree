@@ -52,7 +52,7 @@ export const startRegister = (registerData) =>{
         if(!data.ok){
             Swal.fire({
                 title: 'Error',
-                text: data.message,
+                text: data?.message || 'Las contraseñas no coinciden',
                 icon: 'error',
                 timer: 5000
             })

@@ -50,7 +50,9 @@ export const AppRouter = () => {
         {/* <Route path='/auth/*' element={<AuthRoutes/>} />
         <Route path='/*' element={<TreeRoutes/>} /> */}
     </Routes>
+    <div className="footer-end">
     <Footer/>
+    </div>
     </>
   )
 }
