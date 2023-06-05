@@ -60,7 +60,7 @@ export const Profile = () => {
           }
 
           </div>
-          <a href="https://donate.stripe.com/14k3dJ9g1fdY1fG5kk" className="contact-btn" target="_blank">Donar $50</a>
+          {/* <a href="https://donate.stripe.com/14k3dJ9g1fdY1fG5kk" className="contact-btn" target="_blank">Donar $50</a> */}
         </div>
       </div>
     </div>
