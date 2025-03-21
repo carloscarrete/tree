@@ -119,6 +119,9 @@ Social Treek es una plataforma que te permite compartir tus redes sociales de ma
 	            └── Navbar/
 	                ├── Navbar.jsx
 	                └── style.css
+## Backend
+Puedes visitar el proyecto backend del proyecto en el siguiente enlace:
+https://github.com/carloscarrete/backend-tree
 
 ## Contribución
 Si deseas contribuir a este proyecto, sigue estos pasos:
