@@ -27,7 +27,7 @@ Social Treek es una plataforma que te permite compartir tus redes sociales de ma
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/tuusuario/carloscarrete-tree.git
+   git clone https://github.com/carloscarrete/tree.git
 
 2.  Navega al directorio del proyecto:
 
