@@ -32,7 +32,7 @@ Social Treek es una plataforma que te permite compartir tus redes sociales de ma
 2.  Navega al directorio del proyecto:
 
     
-	    cd carloscarrete-tree
+	    cd tree
     
 3.  Instala las dependencias:
     
